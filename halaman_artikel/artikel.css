@@ -92,7 +92,7 @@ header nav ul li a:hover {
 /* bagian konten utama */
 .resource-library {
   text-align: center;
-  padding: 50px 20px;
+  padding:150px 20px 50px;
 }
 
 h2 {
@@ -179,9 +179,13 @@ p {
   text-decoration: underline;
 }
 
+
 /* Styling untuk Pagination */
 .pagination {
-  margin-top: 20px;
+  margin-top: 50px;
+  text-align: center;  /* Menjaga tombol tetap di tengah */
+  display: inline-flex;
+  gap: 10px;
 }
 
 .pagination button {
@@ -191,25 +195,29 @@ p {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  opacity: 1;  /* Opasitas normal saat tombol aktif */
+  transition: opacity 0.3s ease, background-color 0.3s ease;  /* Menambahkan transisi untuk efek redup */
 }
 
 .pagination button:hover {
   background-color: #0056b3;
 }
 
-/* Responsif untuk layar kecil */
-@media (max-width: 768px) {
-  .articles-container {
-    grid-template-columns: 1fr; /* Pada layar kecil, tampilkan satu artikel per baris */
-  }
+/* Tombol prev dan next redup ketika tidak aktif */
+.pagination button[disabled] {
+  opacity: 0.5;  /* Membuat tombol redup (tidak aktif) */
+  cursor: not-allowed;  /* Mengubah cursor menjadi tanda larangan */
 }
 
-/* Styling untuk Nomor Halaman */
+/* Styling untuk nomor halaman */
 #page-number {
   font-size: 18px;
-  margin: 0 10px;
   color: #333;
+  margin: 10px 10px;
 }
+
+
 
 
 
