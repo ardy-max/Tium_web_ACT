@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+header {
+  background-color: transparent;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 90px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+header.scrolled {
+  background-color: #ffffff;
+  border-left: 20px;
+  border-right: 20px;
+  color: #000000;
+  box-shadow: 0px 2px 10px #00000025;
+}
+
+header .logo img {
+  width: 80px;
+  display: flex;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+}
+
+header nav ul li {
+  position: relative; /* Posisi relatif agar submenu bisa menempel dengan header */
+}
+
+header nav ul li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #007bff;
+}
+
+/* Styling untuk submenu */
+header nav ul li .submenu {
+  display: none; /* Menyembunyikan submenu secara default */
+  position: absolute;
+  top: 100%; /* Menempatkan submenu tepat di bawah header */
+  left: 0;
+  background-color: #ffffff;
+  padding: 10px 0;
+  list-style-type: none;
+  min-width: 150px;
+  z-index: 999;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul li .submenu li {
+  padding: 8px 15px;
+}
+
+header nav ul li .submenu li a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+}
+
+header nav ul li .submenu li a:hover {
+  color: #007bff;
+  background-color: #f0f0f0;
+}
+
+/* Menampilkan submenu saat hover pada dropdown */
+header nav ul li:hover .submenu {
+  display: block;
+}
+
+header nav ul li .submenu:hover {
+  display: block; /* Pastikan sub-menu tetap terlihat saat hover */
+}
+
+
+
+.hero {  /*bagian gambar header*/
+  position: relative; 
+  background-image: url('images/ACT banner.jpg');
+  background-size: cover;
+  color: #ffffff;
+  text-align: center;
+  padding: 367px 20px;
+}
+
+.overlay {  /*bagian overlay*/
+  position: absolute; /* Posisi overlay di atas gambar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Setengah transparan untuk efek gelap */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertikal center teks */
+  align-items: center; /* Horizontal center teks */
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+/* bagian galeri */
+
+#gallery {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+}
+
+#gallery .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-image {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.main-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.nav-btn {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.thumbnail-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Menambahkan jarak antar thumbnail */
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  width: 30%; /* Setiap thumbnail menggunakan 30% dari lebar baris */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+
+
+
+/*bagian footer*/
+
+footer {
+  background-color: #003366;
+  color: #ffffff;
+  padding: 30px 80px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-right: 200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 250px;
+}
+
+.footer-column p{
+  color: white;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.footer-column h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #f7c600;
+  margin-top: 5px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #03ffff;
+}
+
+/* Sosial media di dalam kolom */
+.menu_sosial_footer_inline {
+  height: 150px;
+}
+
+.follow_sosmed{
+  margin-bottom: 30px;
+}
+
+.follow_sosmed h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #f7c600;
+  margin-top: 5px;
+}
+
+.menu_sosial_footer_inline_flex {
+  display: flex;
+  gap: 10px;
+}
+
+
+
+.icon_sosial_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #333;
+  transition: transform 0.3s;
+}
+
+.icon_sosial_footer:hover {
+  transform: scale(1.1);
+}
+
+.icon_sosial_footer img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}
+
+.whatsapp { background-color: #25D366; }
+.facebook { background-color: #3b5998; }
+.instagram { background-color: #E4405F; }
+.email { background-color: #EA4335; }
+
+/* Copyright di bawah tengah */
+.footer-text-center p{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #fdfdfd;
+}
