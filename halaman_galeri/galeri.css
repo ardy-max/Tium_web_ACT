@@ -149,7 +149,7 @@ header nav ul li .submenu:hover {
 }
 
 .main-image img {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
 }
 
