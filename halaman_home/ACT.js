@@ -9,6 +9,8 @@ window.onscroll = function() {
 };
 
 
+
+
 /*bagian artikel*/
 let currentIndex = 0;
 

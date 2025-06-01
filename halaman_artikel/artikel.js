@@ -22,6 +22,11 @@ const articles = [
   { title: "How to Build a Strong Immune System", category: "Health", summary: "A strong immune system is essential for overall health and well-being...", author: "Julia Green", date: "Jan 20, 2022", image: "images/ACT banner.jpg" },
   { title: "Tips for Time Management", category: "Productivity", summary: "Time management is key to success, here's how to do it right...", author: "Mark Johnson", date: "Jan 18, 2022", image: "images/ACT banner.jpg" },
   { title: "Staying Fit at Home", category: "Fitness", summary: "You don’t need a gym to stay fit, here are some great exercises you can do at home...", author: "Rachel White", date: "Jan 22, 2022", image: "images/ACT banner.jpg" },
+  { title: "Staying Fit at Home", category: "Fitness", summary: "You don’t need a gym to stay fit, here are some great exercises you can do at home...", author: "Rachel White", date: "Jan 22, 2022", image: "images/ACT banner.jpg" },
+  { title: "Staying Fit at Home", category: "Fitness", summary: "You don’t need a gym to stay fit, here are some great exercises you can do at home...", author: "Rachel White", date: "Jan 22, 2022", image: "images/ACT banner.jpg" },
+  { title: "Staying Fit at Home", category: "Fitness", summary: "You don’t need a gym to stay fit, here are some great exercises you can do at home...", author: "Rachel White", date: "Jan 22, 2022", image: "images/ACT banner.jpg" },
+  { title: "Staying Fit at Home", category: "Fitness", summary: "You don’t need a gym to stay fit, here are some great exercises you can do at home...", author: "Rachel White", date: "Jan 22, 2022", image: "images/ACT banner.jpg" },
+  { title: "Staying Fit at Home", category: "Fitness", summary: "You don’t need a gym to stay fit, here are some great exercises you can do at home...", author: "Rachel White", date: "Jan 22, 2022", image: "images/ACT banner.jpg" },
   { title: "Benefits of Meditation", category: "Mental Health", summary: "Meditation can reduce stress, improve focus, and enhance overall well-being...", author: "David Brown", date: "Jan 15, 2022", image: "images/ACT banner.jpg" }
 ];
 
@@ -58,10 +63,23 @@ function displayArticles(page) {
   document.getElementById('page-number').textContent = currentPage;
 
   // Menyembunyikan tombol Previous jika sudah di halaman pertama
-  document.getElementById('prev').style.display = currentPage === 1 ? 'none' : 'inline-block';
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  
+  if (currentPage === 1) {
+    prevButton.setAttribute('disabled', 'true');  // Menonaktifkan tombol Prev di halaman pertama
+  } else {
+    prevButton.removeAttribute('disabled');  // Mengaktifkan tombol Prev jika tidak di halaman pertama
+  }
+
   // Menyembunyikan tombol Next jika sudah di halaman terakhir
-  document.getElementById('next').style.display = currentPage * articlesPerPage >= articles.length ? 'none' : 'inline-block';
+  if (currentPage * articlesPerPage >= articles.length) {
+    nextButton.setAttribute('disabled', 'true');  // Menonaktifkan tombol Next di halaman terakhir
+  } else {
+    nextButton.removeAttribute('disabled');  // Mengaktifkan tombol Next jika tidak di halaman terakhir
+  }
 }
+
 
 // Fungsi untuk mengubah halaman
 function changePage(direction) {
