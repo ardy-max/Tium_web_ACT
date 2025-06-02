@@ -132,69 +132,148 @@ header nav ul li .submenu:hover {
 
 /* bagian galeri */
 
-#gallery {
-  background-color: #f5f5f5;
-  padding: 50px 0;
+/* Menata galeri thumbnail */
+.thumbnail-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 5 kolom untuk thumbnail */
+  gap: 15px; /* Jarak antar gambar */
+
+  max-width: 75%;
+  margin: 20px auto;
+  padding: 0 50px;
+  
+  /* Menjaga gambar tetap berada di tengah */
 }
 
-#gallery .container {
-  max-width: 1200px;
-  margin: 0 auto;
+.galeri-kami{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
+/* Menata setiap thumbnail */
+.thumbnail {
+  width: 100%; /* Thumbnail mengisi kolom */
+  height: 150px; /* Tentukan tinggi gambar supaya proporsional */
+  object-fit: cover; /* Agar gambar tetap proporsional */
+  cursor: pointer;
+  border-radius: 5px; /* Opsional: menambahkan sudut melengkung */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Opsional: menambahkan bayangan pada gambar */
+  transition: transform 0.3s ease-in-out; /* Efek transisi saat hover */
+}
+
+/* Efek hover pada thumbnail */
+.thumbnail:hover {
+  transform: scale(1.1); /* Thumbnail akan sedikit membesar saat dihover */
+}
+
+/* Menata gambar utama */
 .main-image {
+  display: none; /* Menyembunyikan gambar utama sebelum thumbnail diklik */
+  position: fixed; /* Memastikan gambar utama berada di tengah layar */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Mengatur gambar agar selalu di tengah */
+  max-width: 80%; /* Mengatur lebar maksimal gambar */
+  max-height: 80%; /* Mengatur tinggi maksimal gambar */
   text-align: center;
-  margin-bottom: 30px;
-  position: relative;
+  z-index: 10000; /* Pastikan gambar utama berada di atas konten lainnya */
 }
 
 .main-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan container tanpa distorsi */
 }
 
+/* Menambahkan overlay hitam di sekitar gambar utama */
+.image-overlay {
+  position: fixed; /* Menutupi seluruh layar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Warna hitam dengan transparansi */
+  z-index: 9999; /* Pastikan overlay di bawah gambar utama */
+}
+
+/* Menata tombol X untuk menutup gambar */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 10001; /* Pastikan tombol X berada di atas overlay dan gambar */
+}
+
+.close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Menata navigasi panah */
 .image-navigation {
   position: absolute;
   top: 50%;
-  width: 100%;
+  left: 50px;
+  right: 0;
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+  z-index: 10001; /* Tombol panah berada di atas gambar dan overlay */
+}
+
+.navbutton{
+  display: none; /* Menyembunyikan gambar utama sebelum thumbnail diklik */
+  position: fixed; /* Memastikan gambar utama berada di tengah layar */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Mengatur gambar agar selalu di tengah */
+  max-width: 80%; /* Mengatur lebar maksimal gambar */
+  max-height: 80%; /* Mengatur tinggi maksimal gambar */
+  text-align: center;
 }
 
 .nav-btn {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(150, 24, 24, 0.5);
   color: white;
-  padding: 10px;
   border: none;
+  padding: 10px;
   cursor: pointer;
   font-size: 18px;
   border-radius: 5px;
 }
 
-.thumbnail-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Menambahkan jarak antar thumbnail */
+
+
+/* Tampilan di responsif (Mobile dan Tablet) */
+@media screen and (max-width: 768px) {
+  .thumbnail-gallery {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom pada layar lebih kecil */
+  }
+
+  .thumbnail {
+    height: 120px; /* Mengurangi tinggi thumbnail pada layar kecil */
+  }
 }
 
-.thumbnail-row {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-}
+@media screen and (max-width: 480px) {
+  .thumbnail-gallery {
+    grid-template-columns: 1fr 1fr; /* 2 kolom pada layar sangat kecil */
+  }
 
-.thumbnail {
-  width: 30%; /* Setiap thumbnail menggunakan 30% dari lebar baris */
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s;
+  .thumbnail {
+    height: 100px; /* Mengurangi lebih lanjut tinggi thumbnail */
+  }
 }
-
-.thumbnail:hover {
-  transform: scale(1.1); /* Efek zoom saat hover */
-}
-
 
 
 
