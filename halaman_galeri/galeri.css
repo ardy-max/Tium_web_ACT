@@ -99,7 +99,7 @@ header nav ul li .submenu:hover {
 
 .hero {  /*bagian gambar header*/
   position: relative; 
-  background-image: url('images/ACT banner.jpg');
+  background-image: url('../images/ACT banner.jpg');
   background-size: cover;
   color: #ffffff;
   text-align: center;
