@@ -12,33 +12,48 @@ window.onscroll = function() {
 
 
 /*bagian artikel*/
-let currentIndex = 0;
+fetch('get_articles.php')
+  .then(response => response.json())
+  .then(data => {
+    const articlesContainer = document.querySelector('.articles-container');
+    articlesContainer.innerHTML = '';  // Clear existing articles
 
-function showSlide(index) {
-  const slides = document.querySelectorAll('.article');
-  const carouselWrapper = document.querySelector('.articles-container');
-  const totalSlides = slides.length;
+    data.forEach(article => {
+      const articleElement = document.createElement('a');
+      articleElement.classList.add('article');
+      articleElement.href = '#';
+      
+      articleElement.innerHTML = `
+        <img src="${article.image_url}" alt="Artikel Gambar">
+        <div class="article-info">
+          <span class="category">${article.category}</span>
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <span class="author">${article.author}</span>
+          <span class="date">${article.date}</span>
+        </div>
+      `;
+      
+      articlesContainer.appendChild(articleElement);
+    });
+  })
+  .catch(error => console.error('Error:', error));
 
-  // Cek apakah kita sudah mencapai batas
-  if (index >= totalSlides - 2) { // Hanya menampilkan 3 artikel
-    currentIndex = totalSlides - 3;
-  } else if (index < 0) {
-    currentIndex = 0;
-  } else {
-    currentIndex = index;
-  }
-
-  // Geser artikel dengan transformasi
-  carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;  
-}
-
-function moveSlide(step) {
-  showSlide(currentIndex + step);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  showSlide(currentIndex);
-});
+fetch('get_statistics.php')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(stat => {
+      const statCard = document.createElement('div');
+      statCard.classList.add('stat-card');
+      statCard.innerHTML = `
+        <h2 class="stat-number">${stat.stat_value}</h2>
+        <h3 class="stat-title">${stat.stat_name}</h3>
+        <p class="stat-desc">${stat.description}</p>
+      `;
+      document.querySelector('.stats-grid-modern').appendChild(statCard);
+    });
+  })
+  .catch(error => console.error('Error:', error));
 
 
 
