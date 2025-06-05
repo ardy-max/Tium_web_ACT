@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACT - Autistic Children’s Therapy</title>
+  <link rel="stylesheet" href="pendaftaran.css">
+</head>
+
+<body>
+<!-- header Section -->
+<header id="header">
+  <div class="logo">
+    <img src="../images/ACT logo.png" alt="ACT Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="../halaman_home/index.html">Beranda</a></li>
+      <li>
+        <a>Tentang Kami </a>
+        <ul class="submenu">
+          <li><a href="../halaman_visi misi/visi.html">Visi Misi Tujuan</a></li>
+          <li><a href="../halaman_galeri/galeri.html">Galeri</a></li>
+        </ul>
+      </li>
+      <li>
+        <a>Pendaftaran</a>
+        <ul class="submenu">
+          <li><a href="pendaftaran_siswa.html">Pendaftaran Siswa Baru (ABK)</a></li>
+          <li><a href="#">Pendaftaran Pelatihan Orang Tua</a></li>
+          <li><a href="pendaftaran_guru.html">Pendaftaran Calon Guru</a></li>
+        </ul>
+      </li>
+      <li><a href="../halaman_artikel/artikel.html">Artikel</a></li>
+      <li><a href="#">Program</a></li>
+      <li><a href="#donation">Donasi</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+  <!-- banner Section -->
+  <main>
+    <section class="hero">
+      <div class="overlay">
+      <h1>Autistic Children’s Therapy</h1>
+      <p>membantu anak untuk mengeluarkan potensi penuh mereka</p>
+      </div>
+    </section>
+  </main>
+
+
+
+
+
+
+  <section class="pendaftaran">
+    <div class="container">
+      <!-- Kolom Persyaratan -->
+      <div class="persyaratan">
+        <h3>Persyaratan Umum:</h3>
+        <ul>
+          <li>Sehat Jasmani dan Rohani berdasarkan Surat Dokter.</li>
+          <li>Setia kepada Pancasila dan UUD 1945.</li>
+          <li>Berumur minimal 18 tahun.</li>
+          <li>Memiliki komitmen untuk menjadi Relawan.</li>
+        </ul>
+      </div>
+
+      <!-- Kolom Formulir Pendaftaran Orang Tua -->
+      <div class="form-pendaftaran">
+        <h2>Pendaftaran Pelatihan Orang Tua</h2>
+        <form action="/submit-pendaftaran-orang-tua" method="POST">
+          <label for="nama-ortu">Nama Orang Tua</label>
+          <input type="text" id="nama-ortu" name="nama-ortu" required>
+
+          <label for="email-ortu">Email</label>
+          <input type="email" id="email-ortu" name="email-ortu" required>
+
+          <label for="telepon-ortu">Nomor Telepon</label>
+          <input type="tel" id="telepon-ortu" name="telepon-ortu" required>
+
+          <label for="alamat-ortu">Alamat</label>
+          <textarea id="alamat-ortu" name="alamat-ortu" required></textarea>
+
+          <button type="submit">Daftar Orang Tua</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+<footer>
+  <div class="footer-content">
+
+    <!-- Kolom 1 -->
+    <div class="footer-column">
+      <h3>Jam Kerja</h3>
+      <p>Senin - Jumat: 08.00 - 16.00</p>
+      <p>Sabtu: 08.00 - 12.00</p>
+      <p>Minggu & Libur: Tutup</p>
+    </div>
+
+    <!-- Kolom 2 -->
+    <div class="footer-column">
+      <h3>Lokasi</h3>
+      <p>lorem ipsum dolor sit amet</p>
+      <p>lorem </p>
+      <p>lorem</p>
+    </div>
+
+    <!-- Kolom 3 -->
+    <div class="footer-column">
+      <h3>Menu Cepat</h3>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Program</a></li>
+        <li><a href="#">Donasi</a></li>
+      </ul>
+    </div>
+
+    <!-- Ikon Sosial Media: pindah ke luar kolom -->
+    <div class="menu_sosial_footer_inline">
+      <div class="follow_sosmed">
+        <h3>follow sosial media</h3>
+      </div>
+    <div class="menu_sosial_footer_inline_flex">
+      <div class="icon_sosial_footer whatsapp">
+        <a href="#"><img src="../images/whatsapp logo.png" alt="WhatsApp"></a>
+      </div>
+      <div class="icon_sosial_footer facebook">
+        <img src="../images/facebook logo.png" alt="Facebook">
+      </div>
+      <div class="icon_sosial_footer instagram">
+        <img src="../images/instagram logo.png" alt="Instagram">
+      </div>
+      <div class="icon_sosial_footer email">
+        <img src="../images/email logo.png" alt="Email">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-text-center">
+    <p>© 2025 ACT - Hak cipta dilindungi oleh undang-undang</p>
+  </div>
+</footer>
+
+  <script src="pendaftaran.js"></script>
+</body>
+</html>
+
