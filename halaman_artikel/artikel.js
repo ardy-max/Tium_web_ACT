@@ -42,7 +42,7 @@ function displayArticles(page) {
   const container = document.getElementById('articles-container');
   container.innerHTML = ''; // Clear sebelumnya
 
-  articlesToDisplay.forEach(article => {
+  articlesToDisplay.forEach((article, index) => {
     const articleElement = document.createElement('div');
     articleElement.classList.add('article');
     articleElement.innerHTML = `
@@ -53,7 +53,7 @@ function displayArticles(page) {
         <p>${article.summary}</p>
         <span class="author">${article.author}</span>
         <span class="date">${article.date}</span>
-        <a href="#" class="read-more">Read More</a>
+        <a href="artikel-detail.html?id=${index}" class="read-more">Read More</a>
       </div>
     `;
     container.appendChild(articleElement);
@@ -80,7 +80,6 @@ function displayArticles(page) {
   }
 }
 
-
 // Fungsi untuk mengubah halaman
 function changePage(direction) {
   if (direction === 'next' && currentPage * articlesPerPage < articles.length) {
@@ -93,3 +92,5 @@ function changePage(direction) {
 
 // Menampilkan artikel pertama kali
 displayArticles(currentPage);
+
+
