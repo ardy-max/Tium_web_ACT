@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pendaftaran Siswa Baru ABK di ACT - Autistic Children's Therapy Surabaya.">
+  <title>Pendaftaran Siswa | ACT - Autistic Children's Therapy</title>
+  <link rel="icon" href="../../../public/images/act tab logo.jpg" sizes="36x36" type="image/png">
+
+  <link rel="stylesheet" href="../../../public/css/global.css">
+  <link rel="stylesheet" href="../../../public/css/components/header.css">
+  <link rel="stylesheet" href="../../../public/css/components/footer.css">
+  <link rel="stylesheet" href="../../../public/css/pages/pendaftaran.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="overlay">
+        <h1>Autistic Children's Therapy</h1>
+        <p>Membantu anak untuk mengeluarkan potensi penuh mereka</p>
+      </div>
+    </section>
+  </main>
+
+  <section class="pendaftaran">
+    <div class="container">
+      <!-- Persyaratan -->
+      <div class="persyaratan">
+        <h3>Persyaratan Umum:</h3>
+        <ul>
+          <li>Sehat Jasmani dan Rohani berdasarkan Surat Dokter.</li>
+          <li>Setia kepada Pancasila dan UUD 1945.</li>
+          <li>Berumur minimal 3 tahun.</li>
+          <li>Memiliki diagnosis dari dokter / psikolog.</li>
+          <li>Orang tua / wali bersedia aktif mendampingi proses terapi.</li>
+        </ul>
+      </div>
+
+      <!-- Form -->
+      <div class="form-pendaftaran">
+        <h2>Pendaftaran Siswa Baru (ABK)</h2>
+        <form class="pendaftaran-form" action="/submit-pendaftaran-siswa" method="POST">
+          <label for="nama-siswa">Nama Siswa</label>
+          <input type="text" id="nama-siswa" name="nama-siswa" placeholder="Nama lengkap siswa" required>
+
+          <label for="ttl-siswa">Tempat &amp; Tanggal Lahir</label>
+          <input type="text" id="ttl-siswa" name="ttl-siswa" placeholder="Contoh: Surabaya, 01 Januari 2020" required>
+
+          <label for="alamat-siswa">Alamat</label>
+          <textarea id="alamat-siswa" name="alamat-siswa" placeholder="Alamat lengkap" required></textarea>
+
+          <label for="nama-ortu">Nama Orang Tua / Wali</label>
+          <input type="text" id="nama-ortu" name="nama-ortu" placeholder="Nama orang tua atau wali" required>
+
+          <label for="telepon-siswa">Nomor Telepon Orang Tua</label>
+          <input type="tel" id="telepon-siswa" name="telepon-siswa" placeholder="08xx-xxxx-xxxx" required>
+
+          <button type="submit">Daftar Sekarang</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script>window.BASE_PATH = '../../../';</script>
+  <script src="../../../public/js/components/navbar.js"></script>
+  <script src="../../../public/js/components/footer.js"></script>
+  <script src="../../../public/js/shared/header.js"></script>
+  <script src="../../../public/js/shared/social-menu.js"></script>
+  <script src="../../controllers/pendaftaran.controller.js"></script>
+
+</body>
+</html>

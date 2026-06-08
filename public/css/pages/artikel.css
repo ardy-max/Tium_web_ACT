@@ -1,0 +1,84 @@
+/* ==========================================================
+   pages/artikel.css — Gaya Khusus Halaman Artikel
+   ========================================================== */
+
+.resource-library {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.articles-container {
+  display: grid;
+  width: 80%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.article {
+  background-color: var(--color-white);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.article img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.article-info {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.category  { font-size: var(--font-size-xs); color: var(--color-text-subtle); }
+.author,
+.date      { font-size: var(--font-size-xs); color: #555; }
+
+.read-more { font-size: var(--font-size-base); color: var(--color-primary); }
+.read-more:hover { text-decoration: underline; }
+
+/* ── Pagination ───────────────────────────────────────────── */
+.pagination {
+  margin-top: 40px;
+  text-align: center;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: background-color var(--transition-base), opacity var(--transition-base);
+}
+
+.pagination button:hover   { background-color: var(--color-primary-dark); }
+.pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+#page-number {
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  min-width: 30px;
+}
+
+@media (max-width: 768px) {
+  .articles-container { width: 100%; grid-template-columns: 1fr; }
+}

@@ -1,0 +1,58 @@
+/* ==========================================================
+   pages/visi-misi.css — Gaya Khusus Halaman Visi Misi
+   ========================================================== */
+
+.resource-library {
+  max-width: 900px;
+  margin: 80px auto 60px;
+  padding: 40px 30px;
+}
+
+.resource-library h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: var(--font-size-3xl);
+  color: var(--color-navy);
+}
+
+/* ── Section Cards ────────────────────────────────────────── */
+.visi,
+.misi,
+.tujuan {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-md);
+  border-left: 5px solid var(--color-accent);
+  transition: transform var(--transition-base);
+}
+
+.visi:hover,
+.misi:hover,
+.tujuan:hover {
+  transform: translateX(4px);
+}
+
+.visi h3,
+.misi h3,
+.tujuan h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-navy);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.misi ol,
+.tujuan ol {
+  padding-left: var(--space-md);
+}
+
+.misi ol li,
+.tujuan ol li {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+  line-height: 1.7;
+}

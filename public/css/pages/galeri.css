@@ -1,0 +1,105 @@
+/* ==========================================================
+   pages/galeri.css — Gaya Khusus Halaman Galeri
+   ========================================================== */
+
+.galeri-kami {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+/* ── Thumbnail Grid ───────────────────────────────────────── */
+.thumbnail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 20px 40px 60px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.thumbnail:hover {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+/* ── Lightbox Overlay ─────────────────────────────────────── */
+.image-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1100;
+  cursor: pointer;
+}
+
+/* ── Gambar Besar ─────────────────────────────────────────── */
+.main-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image img {
+  max-width: 85vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Tombol Navigasi ──────────────────────────────────────── */
+.navbutton {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1300;
+}
+
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.2);
+  color: var(--color-white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  z-index: 1300;
+  transition: background var(--transition-fast);
+}
+
+.close-btn:hover { background: rgba(255,255,255,0.4); }
+
+.image-navigation { display: flex; gap: 10px; }
+
+.nav-btn {
+  background: rgba(255,255,255,0.2);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 20px;
+  font-size: 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.nav-btn:hover { background: rgba(255,255,255,0.4); }

@@ -1,0 +1,273 @@
+================================================================
+  DATABASE STRUKTUR — ACT (Autistic Children's Therapy)
+  Website: Tium_web_ACT
+  Dibuat  : 2025
+  DBMS    : MySQL / MariaDB (disarankan)
+================================================================
+
+Catatan:
+- Semua tabel menggunakan charset utf8mb4 (mendukung emoji & karakter khusus)
+- Kolom `id` selalu PRIMARY KEY AUTO_INCREMENT
+- Kolom `created_at` dan `updated_at` untuk tracking waktu perubahan
+- Data frontend saat ini masih statis di src/data/*.js — tabel ini
+  adalah target backend jika menggunakan PHP/MySQL ke depan
+
+================================================================
+  DAFTAR TABEL
+================================================================
+
+  1. artikel
+  2. statistik
+  3. galeri
+  4. pendaftaran_siswa
+  5. pendaftaran_orang_tua
+  6. pendaftaran_guru
+  7. donasi
+  8. admin_users
+
+================================================================
+  TABEL 1: artikel
+  Digunakan di  : halaman Artikel, Home (recent articles)
+  PHP backend   : get_articles.php
+================================================================
+
+CREATE TABLE artikel (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    judul       VARCHAR(255)  NOT NULL,           -- Judul artikel
+    kategori    VARCHAR(100)  NOT NULL,           -- Contoh: "Mental Health", "Fitness"
+    ringkasan   TEXT          NOT NULL,           -- Paragraf singkat / preview
+    isi         LONGTEXT,                         -- Isi lengkap artikel (opsional)
+    gambar_url  VARCHAR(500),                     -- Path / URL gambar thumbnail
+    penulis     VARCHAR(100)  NOT NULL,           -- Nama penulis
+    tanggal     DATE          NOT NULL,           -- Tanggal publikasi
+    status      ENUM('draft','published')
+                DEFAULT 'draft',                  -- Status publikasi
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+------------------------------------------+---------------+------------------------------+----------+------------------+-------------+------------+-----------+
+| id | judul                                    | kategori      | ringkasan                    | penulis  | gambar_url       | tanggal     | status     |
++----+------------------------------------------+---------------+------------------------------+----------+------------------+-------------+------------+-----------+
+|  1 | 6 Tips To Protect Your Mental Health...  | Mental Health | It's normal to feel anxiety  | Martin K | images/art1.jpg  | 2022-01-30  | published  |
+|  2 | Unsure About Wearing A Face Mask?...    | Health Tips   | Still following shelter...   | John E   | images/art2.jpg  | 2022-01-30  | published  |
++----+------------------------------------------+---------------+------------------------------+----------+------------------+-------------+------------+-----------+
+
+================================================================
+  TABEL 2: statistik
+  Digunakan di  : halaman Home (kartu statistik)
+  PHP backend   : get_statistics.php
+================================================================
+
+CREATE TABLE statistik (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nama_stat   VARCHAR(255) NOT NULL,            -- Contoh: "Jumlah Anak yang Dibantu"
+    nilai_stat  VARCHAR(100) NOT NULL,            -- Contoh: "30", "90%", "Rp 10 Juta"
+    deskripsi   TEXT,                             -- Penjelasan singkat statistik
+    urutan      INT DEFAULT 0,                    -- Urutan tampil di halaman
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+-----------------------------------+-----------+--------------------------------------+--------+
+| id | nama_stat                         | nilai_stat| deskripsi                            | urutan |
++----+-----------------------------------+-----------+--------------------------------------+--------+
+|  1 | Jumlah Anak yang Dibantu          | 30        | Anak ABK yang mendapat layanan terapi|   1    |
+|  2 | Tingkat Keberhasilan Terapi       | 90%       | Persentase anak yang berkembang      |   2    |
+|  3 | Program & Acara Diselenggarakan   | 75        | Total kegiatan yang dilaksanakan     |   3    |
+|  4 | Jumlah Donasi yang Diterima       | Rp 10 Juta| Total donasi terkumpul               |   4    |
++----+-----------------------------------+-----------+--------------------------------------+--------+
+
+================================================================
+  TABEL 3: galeri
+  Digunakan di  : halaman Galeri (lightbox foto)
+================================================================
+
+CREATE TABLE galeri (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nama_file   VARCHAR(255) NOT NULL,            -- Nama file gambar
+    path_foto   VARCHAR(500) NOT NULL,            -- Path relatif / URL foto
+    keterangan  VARCHAR(300),                     -- Caption / keterangan foto
+    urutan      INT DEFAULT 0,                    -- Urutan tampil di grid
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+------------+---------------------------+-------------------+--------+
+| id | nama_file  | path_foto                 | keterangan        | urutan |
++----+------------+---------------------------+-------------------+--------+
+|  1 | foto1.jpg  | tesfoto/foto1.jpg         | Kegiatan terapi 1 |   1    |
+|  2 | foto2.jpg  | tesfoto/foto2.jpg         | Kegiatan terapi 2 |   2    |
+|  3 | Lfoto1.jpg | tesfoto/Lfoto1.jpg        | Sesi kelompok     |   3    |
++----+------------+---------------------------+-------------------+--------+
+
+================================================================
+  TABEL 4: pendaftaran_siswa
+  Digunakan di  : halaman Pendaftaran Siswa (ABK)
+  Form action   : /submit-pendaftaran-siswa
+================================================================
+
+CREATE TABLE pendaftaran_siswa (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    nama_siswa      VARCHAR(150) NOT NULL,        -- Nama lengkap siswa ABK
+    tempat_lahir    VARCHAR(100),                 -- Tempat lahir
+    tanggal_lahir   DATE,                         -- Tanggal lahir
+    alamat          TEXT NOT NULL,                -- Alamat tinggal
+    nama_orang_tua  VARCHAR(150) NOT NULL,        -- Nama ayah/ibu/wali
+    no_telepon      VARCHAR(20)  NOT NULL,        -- Nomor HP orang tua
+    status          ENUM('baru','diproses','diterima','ditolak')
+                    DEFAULT 'baru',               -- Status proses pendaftaran
+    catatan         TEXT,                         -- Catatan admin
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+-------------+---------------+------------------+------------+-----------+
+| id | nama_siswa  | nama_orang_tua| alamat           | no_telepon | status    |
++----+-------------+---------------+------------------+------------+-----------+
+|  1 | Ahmad Rizky | Budi Santoso  | Jl. Mawar No. 5  | 0812345678 | baru      |
+|  2 | Siti Ayu    | Dewi Rahayu   | Jl. Melati No. 3 | 0856789012 | diproses  |
++----+-------------+---------------+------------------+------------+-----------+
+
+================================================================
+  TABEL 5: pendaftaran_orang_tua
+  Digunakan di  : halaman Pendaftaran Pelatihan Orang Tua
+  Form action   : /submit-pendaftaran-orang-tua
+================================================================
+
+CREATE TABLE pendaftaran_orang_tua (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nama        VARCHAR(150) NOT NULL,            -- Nama orang tua/wali
+    email       VARCHAR(150) NOT NULL,            -- Alamat email
+    no_telepon  VARCHAR(20)  NOT NULL,            -- Nomor HP
+    alamat      TEXT         NOT NULL,            -- Alamat tinggal
+    nama_anak   VARCHAR(150),                     -- Nama anak ABK yang mengikuti terapi
+    status      ENUM('baru','diproses','diterima','ditolak')
+                DEFAULT 'baru',
+    catatan     TEXT,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+---------------+------------------------+------------+-----------+----------+
+| id | nama          | email                  | no_telepon | nama_anak | status   |
++----+---------------+------------------------+------------+-----------+----------+
+|  1 | Budi Santoso  | budi@gmail.com         | 0812345678 | Ahmad R.  | baru     |
+|  2 | Dewi Rahayu   | dewi@yahoo.com         | 0856789012 | Siti Ayu  | diterima |
++----+---------------+------------------------+------------+-----------+----------+
+
+================================================================
+  TABEL 6: pendaftaran_guru
+  Digunakan di  : halaman Pendaftaran Calon Guru
+  Form action   : /submit-pendaftaran-guru
+================================================================
+
+CREATE TABLE pendaftaran_guru (
+    id                  INT AUTO_INCREMENT PRIMARY KEY,
+    nama                VARCHAR(150) NOT NULL,    -- Nama calon guru
+    pendidikan_terakhir VARCHAR(150) NOT NULL,    -- Contoh: S1 Psikologi
+    keahlian            VARCHAR(255),             -- Bidang keahlian
+    email               VARCHAR(150) NOT NULL,    -- Email
+    no_telepon          VARCHAR(20)  NOT NULL,    -- Nomor HP
+    alamat              TEXT         NOT NULL,    -- Alamat tinggal
+    status              ENUM('baru','diproses','diterima','ditolak')
+                        DEFAULT 'baru',
+    catatan             TEXT,
+    created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+----------------+--------------------+-----------------------+------------+----------+
+| id | nama           | pendidikan_terakhir| keahlian              | no_telepon | status   |
++----+----------------+--------------------+-----------------------+------------+----------+
+|  1 | Rina Susanti   | S1 Psikologi       | Terapi perilaku (ABA) | 0813456789 | baru     |
+|  2 | Hendra Wijaya  | D3 Fisioterapi     | Sensori integrasi     | 0857890123 | diterima |
++----+----------------+--------------------+-----------------------+------------+----------+
+
+================================================================
+  TABEL 7: donasi
+  Digunakan di  : halaman Home (seksi Donasi)
+  Bukti dikirim : via Google Form (forms.gle/ZuB8JpHTB56GAR8H9)
+================================================================
+
+CREATE TABLE donasi (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    nama_donatur    VARCHAR(150),                 -- Nama donatur (boleh anonim)
+    jumlah          DECIMAL(15,2) NOT NULL,       -- Jumlah donasi dalam Rupiah
+    metode          VARCHAR(50),                  -- Contoh: OVO, GoPay, Dana, ShopeePay
+    bukti_transfer  VARCHAR(500),                 -- Path file bukti transfer (opsional)
+    pesan           TEXT,                         -- Pesan dari donatur
+    status          ENUM('menunggu','terverifikasi','ditolak')
+                    DEFAULT 'menunggu',
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+---------------+----------+---------+---------+-----------+
+| id | nama_donatur  | jumlah   | metode  | pesan   | status    |
++----+---------------+----------+---------+---------+-----------+
+|  1 | Anonim        | 50000.00 | GoPay   | Semoga  | terverf.. |
+|  2 | Sari Dewi     | 200000.00| OVO     | Sukses  | terverf.. |
++----+---------------+----------+---------+---------+-----------+
+
+================================================================
+  TABEL 8: admin_users
+  Digunakan di  : halaman Admin Dashboard
+================================================================
+
+CREATE TABLE admin_users (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    username    VARCHAR(100) NOT NULL UNIQUE,     -- Username login
+    password    VARCHAR(255) NOT NULL,            -- Hash bcrypt
+    nama        VARCHAR(150),                     -- Nama lengkap admin
+    email       VARCHAR(150) NOT NULL UNIQUE,
+    role        ENUM('superadmin','admin','editor')
+                DEFAULT 'editor',
+    last_login  TIMESTAMP NULL,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Contoh isi:
++----+----------+-------------+--------------------+------------+
+| id | username | nama        | email              | role       |
++----+----------+-------------+--------------------+------------+
+|  1 | admin    | Super Admin | admin@act.ac.id    | superadmin |
+|  2 | editor1  | Tim Editor  | editor@act.ac.id   | editor     |
++----+----------+-------------+--------------------+------------+
+
+================================================================
+  RELASI ANTAR TABEL (ringkas)
+================================================================
+
+  admin_users ──── mengelola ────► artikel
+  admin_users ──── mengelola ────► galeri
+  admin_users ──── mengelola ────► statistik
+  admin_users ──── memverifikasi ► donasi
+  admin_users ──── memproses ────► pendaftaran_siswa
+  admin_users ──── memproses ────► pendaftaran_orang_tua
+  admin_users ──── memproses ────► pendaftaran_guru
+
+  (Tidak ada foreign key langsung — relasi dikelola via logika aplikasi PHP)
+
+================================================================
+  PERINTAH BUAT DATABASE (cepat)
+================================================================
+
+  CREATE DATABASE act_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+  USE act_db;
+  -- lalu jalankan masing-masing CREATE TABLE di atas
+
+================================================================
+  FILE TERKAIT DI PROYEK
+================================================================
+
+  src/data/articles.js    → data statis artikel  (sementara, sebelum ada backend)
+  src/data/gallery.js     → data statis galeri    (sementara)
+  src/data/statistics.js  → data statis statistik (sementara)
+
+  halaman_home/index.js   → fetch('get_articles.php') & fetch('get_statistics.php')
+                            = titik koneksi ke DB melalui PHP backend
+
+================================================================

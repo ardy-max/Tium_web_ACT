@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galeri foto kegiatan ACT — Autistic Children's Therapy Surabaya.">
+  <title>Galeri | ACT - Autistic Children's Therapy</title>
+  <link rel="icon" href="../../../public/images/act tab logo.jpg" sizes="36x36" type="image/png">
+
+  <link rel="stylesheet" href="../../../public/css/global.css">
+  <link rel="stylesheet" href="../../../public/css/components/header.css">
+  <link rel="stylesheet" href="../../../public/css/components/footer.css">
+  <link rel="stylesheet" href="../../../public/css/pages/galeri.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- ─── Hero ─── -->
+  <main>
+    <section class="hero">
+      <div class="overlay">
+        <h1>Autistic Children's Therapy</h1>
+        <p>Membantu anak untuk mengeluarkan potensi penuh mereka</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Lightbox Elements ─── -->
+  <div class="navbutton" style="display:none;">
+    <button class="close-btn">✕</button>
+    <div class="image-navigation">
+      <button id="prev-btn" class="nav-btn">←</button>
+      <button id="next-btn" class="nav-btn">→</button>
+    </div>
+  </div>
+  <div class="image-overlay" style="display:none;"></div>
+  <div class="main-image" style="display:none;">
+    <img id="large-image" src="" alt="Foto Galeri">
+  </div>
+
+  <!-- ─── Galeri ─── -->
+  <div class="galeri-kami"><h2>Galeri Kami</h2></div>
+  <div class="thumbnail-gallery">
+    <!-- Di-render oleh galeri.controller.js dari GalleryData -->
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>window.BASE_PATH = '../../../';</script>
+  <script src="../../../public/js/components/navbar.js"></script>
+  <script src="../../../public/js/components/footer.js"></script>
+  <script src="../../../public/js/shared/header.js"></script>
+  <script src="../../../public/js/shared/social-menu.js"></script>
+  <script src="../../models/gallery.js"></script>
+  <script src="../../controllers/galeri.controller.js"></script>
+
+</body>
+</html>

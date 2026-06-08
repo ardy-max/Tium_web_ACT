@@ -1,0 +1,169 @@
+/* ==========================================================
+   global.css — Design Tokens, Reset & Shared Utilities
+   ACT - Autistic Children's Therapy
+   ========================================================== */
+
+/* ── Google Fonts ──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── CSS Variables (Design Tokens) ────────────────────────── */
+:root {
+  /* Warna Utama */
+  --color-primary:       #007bff;
+  --color-primary-dark:  #0056b3;
+  --color-accent:        #25a8fa;
+  --color-navy:          #003366;
+
+  /* Warna Netral */
+  --color-white:         #ffffff;
+  --color-bg:            #f9f9f9;
+  --color-bg-light:      #f5fbff;
+  --color-text:          #333333;
+  --color-text-muted:    #666666;
+  --color-text-subtle:   #888888;
+  --color-border:        rgba(3, 255, 255, 0.13);
+
+  /* Warna Sosial Media */
+  --color-whatsapp:      #25D366;
+  --color-facebook:      #3b5998;
+  --color-instagram:     #E4405F;
+  --color-youtube:       #c22424;
+
+  /* Tipografi */
+  --font-family:         'Inter', Arial, sans-serif;
+  --font-size-xs:        12px;
+  --font-size-sm:        14px;
+  --font-size-base:      16px;
+  --font-size-md:        18px;
+  --font-size-lg:        20px;
+  --font-size-xl:        24px;
+  --font-size-2xl:       30px;
+  --font-size-3xl:       32px;
+  --font-size-4xl:       48px;
+
+  /* Spacing */
+  --space-xs:            8px;
+  --space-sm:            16px;
+  --space-md:            24px;
+  --space-lg:            40px;
+  --space-xl:            60px;
+  --space-2xl:           80px;
+
+  /* Radius */
+  --radius-sm:           4px;
+  --radius-md:           8px;
+  --radius-lg:           16px;
+  --radius-full:         50%;
+
+  /* Shadow */
+  --shadow-sm:           0 2px 10px rgba(0,0,0,0.1);
+  --shadow-md:           0 6px 30px rgba(0,0,0,0.15);
+  --shadow-lg:           0 10px 20px rgba(0,0,0,0.2);
+
+  /* Transition */
+  --transition-fast:     0.2s ease;
+  --transition-base:     0.3s ease;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ── Hero (dipakai di semua halaman kecuali home) ──────────── */
+.hero {
+  position: relative;
+  background-image: url('../../images/ACT banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+  text-align: center;
+  padding: 150px 20px;
+}
+
+.hero.hero--tall {
+  padding: 400px 20px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+}
+
+/* ── Utilitas ──────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.text-center { text-align: center; }
+
+h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+/* ── Form Error Highlight ──────────────────────────────────── */
+.input-error {
+  border: 2px solid #e74c3c !important;
+  background-color: #fff5f5;
+}

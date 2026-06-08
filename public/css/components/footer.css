@@ -1,0 +1,117 @@
+/* ==========================================================
+   components/footer.css — Footer & Floating Social Media
+   ========================================================== */
+
+/* ── Floating Social Media ───────────────────────────────── */
+.menu_sosial {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: opacity var(--transition-base);
+  z-index: 1000;
+}
+
+.menu_sosial.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.icon_sosial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+}
+
+.icon_sosial:hover { transform: scale(1.15); }
+.icon_sosial img   { width: 36px; height: auto; object-fit: contain; }
+
+/* ── Footer ──────────────────────────────────────────────── */
+footer {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  padding: 30px 80px 20px;
+  font-family: var(--font-family);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: 0 auto;
+}
+
+.footer-column {
+  border-right: 1px solid var(--color-border);
+  padding: 0 var(--space-md);
+  flex: 1 1 150px;
+}
+
+.footer-column p   { color: var(--color-white); }
+
+.footer-column h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.footer-column h3::after,
+.follow_sosmed h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #f7c600;
+  margin-top: 5px;
+}
+
+/* ── Footer Social Media Inline ──────────────────────────── */
+.menu_sosial_footer_inline {
+  padding-left: var(--space-md);
+}
+
+.follow_sosmed {
+  margin-bottom: var(--space-md);
+}
+
+.menu_sosial_footer_inline_flex {
+  display: flex;
+  gap: 10px;
+}
+
+.icon_sosial_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+}
+
+.icon_sosial_footer:hover { transform: scale(1.1); }
+.icon_sosial_footer img   { width: 40px; height: auto; object-fit: contain; }
+
+/* ── Brand Colors ────────────────────────────────────────── */
+.whatsapp  { background-color: var(--color-whatsapp); }
+.facebook  { background-color: var(--color-facebook); }
+.instagram { background-color: var(--color-instagram); }
+.youtube   { background-color: var(--color-youtube); }
+
+/* ── Copyright ───────────────────────────────────────────── */
+.footer-text-center {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.footer-text-center p {
+  font-size: var(--font-size-xs);
+  color: #fdfdfd;
+}

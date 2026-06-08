@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baca artikel terbaru dari ACT tentang kesehatan, terapi, dan tumbuh kembang Anak Berkebutuhan Khusus.">
+  <title>Artikel | ACT - Autistic Children's Therapy</title>
+  <link rel="icon" href="../../../public/images/act tab logo.jpg" sizes="36x36" type="image/png">
+
+  <link rel="stylesheet" href="../../../public/css/global.css">
+  <link rel="stylesheet" href="../../../public/css/components/header.css">
+  <link rel="stylesheet" href="../../../public/css/components/footer.css">
+  <link rel="stylesheet" href="../../../public/css/pages/artikel.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- ─── Hero ─── -->
+  <main>
+    <section class="hero">
+      <div class="overlay">
+        <h1>Autistic Children's Therapy</h1>
+        <p>Membantu anak untuk mengeluarkan potensi penuh mereka</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Daftar Artikel ─── -->
+  <div class="resource-library">
+    <h2>Artikel</h2>
+    <div class="articles-container" id="articles-container">
+      <!-- Di-render oleh artikel.controller.js -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button id="prev" onclick="changePage('prev')">←</button>
+      <span id="page-number">1</span>
+      <button id="next" onclick="changePage('next')">→</button>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>window.BASE_PATH = '../../../';</script>
+  <script src="../../../public/js/components/navbar.js"></script>
+  <script src="../../../public/js/components/footer.js"></script>
+  <script src="../../../public/js/shared/header.js"></script>
+  <script src="../../../public/js/shared/social-menu.js"></script>
+  <script src="../../models/articles.js"></script>
+  <script src="../../controllers/artikel.controller.js"></script>
+
+</body>
+</html>

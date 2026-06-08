@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ACT - Autistic Children's Therapy. Membantu anak berkebutuhan khusus mengeluarkan potensi penuh mereka.">
+  <title>Beranda | ACT - Autistic Children's Therapy</title>
+  <link rel="icon" href="../../../public/images/act tab logo.jpg" sizes="36x36" type="image/png">
+
+  <!-- CSS: Global + Components + Page -->
+  <link rel="stylesheet" href="../../../public/css/global.css">
+  <link rel="stylesheet" href="../../../public/css/components/header.css">
+  <link rel="stylesheet" href="../../../public/css/components/footer.css">
+  <link rel="stylesheet" href="../../../public/css/pages/home.css">
+</head>
+<body>
+
+  <!-- ─── Navbar (di-inject oleh navbar.js) ─── -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ─── Hero ─── -->
+  <main>
+    <section class="hero hero--home">
+      <div class="overlay">
+        <h1>Autistic Children's Therapy</h1>
+        <p>Membantu anak untuk mengeluarkan potensi penuh mereka</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Tentang Kami ─── -->
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <video width="640" height="360" controls autoplay muted>
+          <source src="../../../public/images/profil.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="about-text">
+        <h2>Tentang Kami</h2>
+        <p>
+          ACT (Autistic Children's Therapy) adalah pusat terapi yang berdedikasi untuk membantu
+          Anak Berkebutuhan Khusus (ABK) mengembangkan potensi mereka secara optimal melalui
+          layanan terapi profesional dan terjangkau.
+        </p>
+        <p>
+          Kami berkomitmen memberikan pendampingan menyeluruh kepada anak dan keluarga agar setiap
+          ABK dapat hidup mandiri dan diterima di masyarakat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Visi Misi Tujuan ─── -->
+  <div class="info-container">
+    <div class="info-section">
+      <h2>Visi</h2>
+      <p class="info-hover">Membantu memperbaiki hidup Anak Berkebutuhan Khusus (ABK).</p>
+    </div>
+    <div class="info-section middle">
+      <h2>Misi</h2>
+      <p class="info-hover">Memberikan layanan terapi terjangkau dan profesional untuk mendukung kemandirian ABK.</p>
+    </div>
+    <div class="info-section">
+      <h2>Tujuan</h2>
+      <p class="info-hover">Mewujudkan pendidikan inklusif bagi ABK melalui intervensi dini dan pengembangan keterampilan.</p>
+    </div>
+  </div>
+
+  <!-- ─── Artikel Terbaru ─── -->
+  <div class="resource-library">
+    <h2>Artikel Terbaru</h2>
+    <div class="articles-container">
+      <!-- Di-render oleh home.controller.js -->
+    </div>
+  </div>
+
+  <!-- ─── Statistik ─── -->
+  <div class="stats-grid-modern">
+    <!-- Di-render oleh home.controller.js -->
+  </div>
+
+  <!-- ─── Donasi ─── -->
+  <section id="donation">
+    <div class="donation-info">
+      <h2>Make A Donation</h2>
+      <p>Dukung misi kami dan berkontribusi untuk membantu ABK. Donasi Anda sangat berarti!</p>
+      <div class="donation-qr">
+        <img src="../../../public/images/qr code.jpg" alt="QRIS Payment">
+        <p>Scan QR code untuk donasi via OVO, GoPay, Dana, ShopeePay, dan lainnya!</p>
+        <a href="https://forms.gle/ZuB8JpHTB56GAR8H9" target="_blank">
+          <button class="donate-button">Ketuk untuk mengirim bukti donasi</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer (di-inject oleh footer.js) ─── -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ─── Scripts ─── -->
+  <!-- Set BASE_PATH sebelum load komponen -->
+  <script>window.BASE_PATH = '../../../';</script>
+
+  <!-- Shared -->
+  <script src="../../../public/js/components/navbar.js"></script>
+  <script src="../../../public/js/components/footer.js"></script>
+  <script src="../../../public/js/shared/header.js"></script>
+  <script src="../../../public/js/shared/social-menu.js"></script>
+
+  <!-- Model -->
+  <script src="../../models/articles.js"></script>
+  <script src="../../models/statistics.js"></script>
+
+  <!-- Controller -->
+  <script src="../../controllers/home.controller.js"></script>
+
+</body>
+</html>

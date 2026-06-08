@@ -1,0 +1,223 @@
+/* ==========================================================
+   pages/home.css — Gaya Khusus Halaman Home
+   ========================================================== */
+
+/* ── Hero Home (lebih tinggi dari halaman lain) ──────────── */
+.hero--home {
+  padding: 400px 20px;
+}
+
+/* ── Tentang Kami ─────────────────────────────────────────── */
+.about-section {
+  padding: 70px 30px;
+  background-color: var(--color-bg);
+  margin-top: 40px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-white);
+  padding: var(--space-lg);
+}
+
+.about-image video {
+  width: 550px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.about-text { flex: 1; max-width: 600px; }
+
+.about-text h2 {
+  color: #83b3ea;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-sm);
+  border-bottom: 3px solid #f0c420;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.about-text p {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Visi Misi Tujuan (info cards) ───────────────────────── */
+.info-container {
+  background-color: var(--color-bg-light);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  height: 320px;
+  margin: 30px 0;
+}
+
+.info-section {
+  text-align: center;
+  width: 320px;
+  height: 220px;
+  position: relative;
+  padding: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.info-section h2 {
+  color: #1E2A47;
+  font-size: 28px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top var(--transition-base), transform var(--transition-base);
+  white-space: nowrap;
+}
+
+.info-hover {
+  opacity: 0;
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  transition: opacity var(--transition-base);
+  margin-top: 10px;
+}
+
+.info-section:hover h2 {
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.info-section:hover .info-hover { opacity: 1; }
+
+.info-section.middle {
+  border-left: 4px solid #8db2f8;
+  border-right: 4px solid #8db2f8;
+}
+
+/* ── Artikel Terbaru ──────────────────────────────────────── */
+.resource-library {
+  text-align: center;
+  padding: 50px 20px 70px;
+  background-color: #d7f6ff;
+}
+
+.resource-library h2 { margin-bottom: 30px; }
+
+.articles-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.article {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+}
+
+.article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.article img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.article-info { padding: 15px; flex-grow: 1; }
+.category     { font-size: var(--font-size-xs); color: var(--color-text-subtle); }
+.author, .date { font-size: var(--font-size-xs); color: #555; }
+
+/* ── Statistik ────────────────────────────────────────────── */
+.stats-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: var(--space-xl);
+  background-color: var(--color-white);
+}
+
+.stat-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base);
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-number {
+  color: var(--color-accent);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stat-title { font-size: var(--font-size-md); font-weight: 600; color: var(--color-text); }
+.stat-desc  { font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 8px; }
+
+/* ── Donasi ───────────────────────────────────────────────── */
+#donation {
+  background-color: #d7f6ff;
+  padding: 50px 0;
+}
+
+.donation-info {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.donation-info h2 { font-size: var(--font-size-3xl); margin-bottom: 20px; }
+.donation-info p  { font-size: var(--font-size-base); margin-bottom: 20px; }
+
+.donation-qr img {
+  width: 300px;
+  margin: 0 auto 15px;
+}
+
+.donate-button {
+  background-color: #28a745;
+  color: var(--color-white);
+  padding: 12px 24px;
+  border: none;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-base);
+}
+
+.donate-button:hover { background-color: #218838; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .article { width: 100%; }
+  .info-container { flex-direction: column; height: auto; }
+  .stats-grid-modern { grid-template-columns: 1fr; }
+}
