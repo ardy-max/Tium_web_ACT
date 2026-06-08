@@ -101,7 +101,7 @@ ul {
 /* ── Hero (dipakai di semua halaman kecuali home) ──────────── */
 .hero {
   position: relative;
-  background-image: url('../../images/ACT banner.jpg');
+  background-image: url('../images/ACT banner.jpg');
   background-size: cover;
   background-position: center;
   color: var(--color-white);
