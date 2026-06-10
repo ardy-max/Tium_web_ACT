@@ -217,7 +217,149 @@
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .article { width: 100%; }
-  .info-container { flex-direction: column; height: auto; }
-  .stats-grid-modern { grid-template-columns: 1fr; }
+  .hero--home {
+    padding: 160px 15px;
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero p {
+    font-size: var(--font-size-sm);
+  }
+
+  .about-section {
+    padding: 40px 15px;
+    margin-top: 20px;
+  }
+
+  .about-container {
+    padding: var(--space-md);
+    gap: 20px;
+  }
+
+  .about-image video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .about-text h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .about-text p {
+    font-size: var(--font-size-sm);
+    text-align: left;
+  }
+
+  /* Perbaikan Visi Misi Tujuan di HP */
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 20px 15px;
+  }
+
+  .info-section {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    position: static;
+    padding: 20px;
+    margin-top: 0;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    background-color: var(--color-white);
+  }
+
+  .info-section h2 {
+    position: static;
+    transform: none;
+    font-size: var(--font-size-xl);
+    margin-bottom: 8px;
+    color: var(--color-navy);
+    white-space: normal;
+  }
+
+  .info-hover {
+    opacity: 1;
+    font-size: var(--font-size-sm);
+    margin-top: 0;
+  }
+
+  .info-section:hover h2 {
+    transform: none;
+  }
+
+  .info-section.middle {
+    border-left: none;
+    border-right: none;
+    border-top: 4px solid #8db2f8;
+    border-bottom: 4px solid #8db2f8;
+  }
+
+  /* Artikel Terbaru di HP */
+  .resource-library {
+    padding: 40px 15px;
+  }
+
+  .articles-container {
+    gap: 20px;
+  }
+
+  .article {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    min-height: 380px;
+    margin: 0 auto;
+  }
+
+  /* Statistik di HP */
+  .stats-grid-modern {
+    grid-template-columns: 1fr;
+    padding: var(--space-md) 15px;
+    gap: 20px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Donasi di HP */
+  #donation {
+    padding: 30px 15px;
+  }
+
+  .donation-info {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .donation-info h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .donation-info p {
+    font-size: var(--font-size-sm);
+  }
+
+  .donation-qr img {
+    width: 100%;
+    max-width: 250px;
+  }
 }
+
