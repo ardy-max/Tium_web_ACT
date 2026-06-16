@@ -1,3 +1,4 @@
+<?php require_once '../../../api/auth/protect.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -23,12 +24,16 @@
       </div>
       <nav>
         <ul>
-          <li><a href="./index.html" class="active">📊 Dashboard</a></li>
-          <li><a href="./artikel.html">📰 Artikel</a></li>
-          <li><a href="./statistik.html">📈 Statistik</a></li>
-          <li><a href="./galeri.html">🖼️ Galeri</a></li>
-          <li><a href="./pendaftaran.html">📋 Pendaftaran</a></li>
-          <li><a href="./donasi.html">💰 Donasi</a></li>
+          <li><a href="./index.php" class="active">📊 Dashboard</a></li>
+          <li><a href="./artikel.php">📰 Artikel</a></li>
+          <li><a href="./statistik.php">📈 Statistik</a></li>
+          <li><a href="./galeri.php">🖼️ Galeri</a></li>
+          <li><a href="./pendaftaran.php">📋 Pendaftaran</a></li>
+          <li><a href="./donasi.php">💰 Donasi</a></li>
+        
+          <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+          <li><a href="./users.php">👥 Kelola User</a></li>
+          <?php endif; ?>
         </ul>
       </nav>
     </aside>
@@ -44,7 +49,7 @@
         </button>
         <h2>Dashboard</h2>
         <div>
-          <span>Welcome, <strong>Admin</strong></span>
+          <span>Welcome, <strong><?php echo htmlspecialchars($_SESSION['nama'] ?? 'User'); ?></strong></span>
           <button class="btn-logout">Logout</button>
         </div>
       </header>
@@ -78,9 +83,9 @@
         <div class="quick-links" style="margin-top: 30px; background: var(--color-white); padding: 24px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
           <h3 style="margin-bottom: 15px; color: var(--color-navy);">Quick Actions</h3>
           <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 10px;"><a href="./artikel.html" style="color: var(--color-accent); text-decoration: none;">+ Tambah / Kelola Artikel</a></li>
-            <li style="margin-bottom: 10px;"><a href="./galeri.html" style="color: var(--color-accent); text-decoration: none;">Kelola Galeri Foto</a></li>
-            <li style="margin-bottom: 10px;"><a href="./statistik.html" style="color: var(--color-accent); text-decoration: none;">Lihat & Kelola Statistik</a></li>
+            <li style="margin-bottom: 10px;"><a href="./artikel.php" style="color: var(--color-accent); text-decoration: none;">+ Tambah / Kelola Artikel</a></li>
+            <li style="margin-bottom: 10px;"><a href="./galeri.php" style="color: var(--color-accent); text-decoration: none;">Kelola Galeri Foto</a></li>
+            <li style="margin-bottom: 10px;"><a href="./statistik.php" style="color: var(--color-accent); text-decoration: none;">Lihat & Kelola Statistik</a></li>
           </ul>
         </div>
       </main>

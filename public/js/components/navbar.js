@@ -110,5 +110,39 @@
         }
       });
     });
+
+    // ── Tombol Login / Admin Panel (selalu tampil) ──────────────
+    // Jika belum login → "Login Admin" ke halaman login
+    // Jika sudah login → "Admin Panel" ke dashboard
+    fetch(BASE + 'api/auth/check_session.php')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        _injectAuthBtn(data.loggedIn);
+      })
+      .catch(function () {
+        _injectAuthBtn(false);
+      });
+
+    function _injectAuthBtn(loggedIn) {
+      var nav = document.querySelector('header nav');
+      if (!nav) return;
+
+      var btn = document.createElement('a');
+      btn.id = 'btn-admin-panel';
+
+      if (loggedIn) {
+        btn.href = BASE + 'app/views/admin/index.php';
+        btn.textContent = 'Admin Panel';
+        btn.className = 'btn-admin-panel';
+        btn.title = 'Masuk ke panel admin';
+      } else {
+        btn.href = BASE + 'app/views/login.html';
+        btn.textContent = 'Login Admin';
+        btn.className = 'btn-admin-panel btn-login-nav';
+        btn.title = 'Login sebagai admin / karyawan';
+      }
+
+      nav.appendChild(btn);
+    }
   }
 })();

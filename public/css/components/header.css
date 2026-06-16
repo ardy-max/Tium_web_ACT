@@ -27,6 +27,11 @@ header .logo img {
 }
 
 /* ── Navigation ──────────────────────────────────────────── */
+header nav {
+  display: flex;
+  align-items: center;
+}
+
 header nav ul {
   display: flex;
   gap: 30px;
@@ -221,3 +226,86 @@ header nav ul li .submenu:hover {
   }
 }
 
+/* ── Tombol Login Admin / Admin Panel di Header ──────────── */
+/* Tombol di-inject langsung ke dalam <nav>, bukan sebagai list item */
+
+header nav .btn-admin-panel {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  margin-left: 20px;
+  background: linear-gradient(135deg, #f26522, #d14f00);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 50px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 14px rgba(242, 101, 34, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+header nav .btn-admin-panel:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 22px rgba(242, 101, 34, 0.6);
+  background: linear-gradient(135deg, #ff7a35, #d14f00);
+  color: #ffffff !important;
+}
+
+header nav .btn-admin-panel:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Tombol "Login Admin" — outlined */
+header nav .btn-admin-panel.btn-login-nav {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: #ffffff !important;
+  box-shadow: none;
+}
+
+header nav .btn-admin-panel.btn-login-nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+  transform: translateY(-1px);
+  color: #ffffff !important;
+}
+
+/* Saat header scroll (background putih) */
+header.scrolled nav .btn-admin-panel.btn-login-nav {
+  border-color: var(--color-navy);
+  color: var(--color-navy) !important;
+}
+
+header.scrolled nav .btn-admin-panel.btn-login-nav:hover {
+  background: var(--color-navy);
+  color: #ffffff !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  header nav .btn-admin-panel {
+    margin-left: 0;
+    margin-top: 12px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    width: fit-content;
+    border-color: var(--color-navy);
+    background: linear-gradient(135deg, #f26522, #d14f00);
+    color: #ffffff !important;
+  }
+
+  header nav .btn-admin-panel.btn-login-nav {
+    background: transparent;
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy) !important;
+  }
+
+  header nav .btn-admin-panel.btn-login-nav:hover {
+    background: var(--color-navy);
+    color: #ffffff !important;
+  }
+}

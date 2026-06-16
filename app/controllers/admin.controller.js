@@ -7,10 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
   // Tombol logout
   const logoutBtn = document.querySelector('.top-bar button.btn-logout');
   if (logoutBtn) {
-    logoutBtn.addEventListener('click', function () {
+    logoutBtn.addEventListener('click', async function () {
       if (confirm('Yakin ingin logout?')) {
-        alert('Anda telah logout.');
-        // TODO: tambahkan redirect ke halaman login
+        try {
+            await fetch('../../../api/auth/logout.php');
+            window.location.href = '../login.html';
+        } catch(e) {
+            console.error('Logout error', e);
+        }
       }
     });
   }

@@ -1,3 +1,4 @@
+<?php require_once '../../../api/auth/protect.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,16 +16,19 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
       <img src="../../../public/images/ACT logo.png" alt="ACT Logo">
-      <p>Admin Panel</p>
+      <p>Autistic Children's Therapy</p>
     </div>
     <nav>
       <ul>
-        <li><a href="./index.html">📊 Dashboard</a></li>
-        <li><a href="./artikel.html">📰 Artikel</a></li>
-        <li><a href="./statistik.html" class="active">📈 Statistik</a></li>
-        <li><a href="./galeri.html">🖼️ Galeri</a></li>
-        <li><a href="./pendaftaran.html">📋 Pendaftaran</a></li>
-        <li><a href="./donasi.html">💰 Donasi</a></li>
+        <li><a href="./index.php">📊 Dashboard</a></li>
+        <li><a href="./artikel.php">📰 Artikel</a></li>
+        <li><a href="./statistik.php" class="active">📈 Statistik</a></li>
+        <li><a href="./galeri.php">🖼️ Galeri</a></li>
+        <li><a href="./pendaftaran.php">📋 Pendaftaran</a></li>
+        <li><a href="./donasi.php">💰 Donasi</a></li>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <li><a href="./users.php">👥 Kelola User</a></li>
+        <?php endif; ?>
       </ul>
     </nav>
   </aside>
@@ -36,7 +40,7 @@
       </button>
       <h2>Manajemen Statistik</h2>
       <div class="top-bar-right">
-        <a href="../../../app/views/home/index.html" target="_blank"
+        <a href="../../../app/views/home/index.php" target="_blank"
            style="font-size:13px;color:var(--color-accent);text-decoration:none;white-space:nowrap;">Lihat Situs ↗</a>
         <button class="btn-logout">Logout</button>
       </div>
