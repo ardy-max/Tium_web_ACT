@@ -2,7 +2,7 @@
 
 ## Kontribusi
   Jika Anda ingin berkontribusi pada proyek ini, ikuti langkah-langkah berikut:
-
+. 
 ### 1. Fork Repositori
   Fork repositori ini ke akun GitHub Anda dengan klik tombol **Fork** di pojok kanan atas halaman repositori GitHub.
 
