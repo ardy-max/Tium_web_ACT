@@ -56,3 +56,38 @@
   margin-bottom: var(--space-xs);
   line-height: 1.7;
 }
+
+/* ── Visi Misi Responsive Styles ────────────────────────── */
+@media (max-width: 768px) {
+  .resource-library {
+    margin: 80px auto 40px;
+    padding: 30px 15px;
+  }
+
+  .resource-library h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: 25px;
+  }
+
+  .visi,
+  .misi,
+  .tujuan {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .visi h3,
+  .misi h3,
+  .tujuan h3 {
+    font-size: var(--font-size-md);
+    margin-bottom: 10px;
+  }
+
+  .misi ol li,
+  .tujuan ol li {
+    font-size: var(--font-size-sm);
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+}
+

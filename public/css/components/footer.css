@@ -115,3 +115,66 @@ footer {
   font-size: var(--font-size-xs);
   color: #fdfdfd;
 }
+
+/* ── Footer Responsive Styles ──────────────────────────── */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 20px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .footer-column {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 0 20px 0;
+    width: 100%;
+    flex: none;
+  }
+
+  .footer-column p {
+    font-size: var(--font-size-sm);
+  }
+
+  .footer-column h3::after,
+  .follow_sosmed h3::after {
+    margin: 5px auto 0;
+  }
+
+  .footer-column iframe {
+    width: 100% !important;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .menu_sosial_footer_inline {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .menu_sosial_footer_inline_flex {
+    justify-content: center;
+  }
+
+  /* Floating Social Media di HP */
+  .menu_sosial {
+    bottom: 15px;
+    right: 15px;
+    gap: 8px;
+  }
+
+  .icon_sosial {
+    width: 44px;
+    height: 44px;
+  }
+
+  .icon_sosial img {
+    width: 28px;
+  }
+}
+

@@ -12,8 +12,11 @@
 </head>
 <body>
   <div class="admin-layout">
+    <!-- Backdrop Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <!-- Sidebar Menu -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar-logo">
         <img src="../../../public/images/ACT logo.png" alt="ACT Logo">
         <p>Autistic Children's Therapy</p>
@@ -35,6 +38,11 @@
     <div class="admin-main">
       <!-- Top Bar -->
       <header class="top-bar">
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <h2>Dashboard</h2>
         <div>
           <span>Welcome, <strong>Admin</strong></span>
